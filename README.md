@@ -1,5 +1,7 @@
-# sodiepop - Chrome extension
+# <img src="/icons/icon32.png" alt="My cool logo"/> sodiepop - Chrome extension 
 Chrome extension that copies the last part of the url to the clipboard each time a new page loads.
+
+
 
 Installation
 -------
