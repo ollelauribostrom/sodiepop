@@ -1,0 +1,19 @@
+{
+  "name": "sodiepop",
+  "version": "1.0",
+  "description": "Copies the last part of the url to the clipboard each time a new page loads. Credits: ’Soda Can’ icon by Kevin, from thenounproject.com.",
+  "background": {
+    "scripts": ["sodiepop.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs"
+   ],
+   "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "manifest_version": 2
+}
