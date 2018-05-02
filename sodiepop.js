@@ -1,11 +1,25 @@
 chrome.runtime.onInstalled.addListener(onInstalled);
+chrome.tabs.onCreated.addListener(onCreated);
 chrome.tabs.onUpdated.addListener(onUpdated);
 chrome.browserAction.onClicked.addListener(toggleActive)
 
 let active = false;
+let awaitingUrlFromTab = null;
 
 function onInstalled(ev) {
   console.log('sodiepop is now popping urls')
+}
+
+function onCreated(tab) {
+  if (!active) {
+    return;
+  }
+
+  if (tab.url) {
+    handleUrl(tab.url);
+  } else {
+    awaitingUrlFromTab = tab.id;
+  }
 }
 
 function onUpdated(tabId, changeInfo, tab) {
@@ -13,11 +27,16 @@ function onUpdated(tabId, changeInfo, tab) {
     return;
   }
 
-  if (changeInfo.status === "loading" && changeInfo.url) {
-    const urlParts = changeInfo.url.split('/');
-    trimTrailingSlash(urlParts);
-    copyToClipboard(urlParts.pop());
+  if (awaitingUrlFromTab === tabId && changeInfo.url) {
+    handleUrl(changeInfo.url);
+    awaitingUrlFromTab = null;
   }
+}
+
+function handleUrl(url) {
+  const urlParts = url.split('/');
+  trimTrailingSlash(urlParts);
+  copyToClipboard(urlParts.pop());
 }
 
 function trimTrailingSlash(urlParts) {

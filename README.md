@@ -1,7 +1,5 @@
 # <img src="/icons/icon32.png" alt="My cool logo"/> sodiepop - Chrome extension 
-Chrome extension that copies the last part of the url to the clipboard each time a new page loads.
-
-
+Chrome extension that copies the last part of the url to the clipboard each time a new tab opens.
 
 Installation
 -------
@@ -10,7 +8,7 @@ Get it at [Chrome Web Store](https://chrome.google.com/webstore/search/sodiepop)
 Usage
 -----
 ```bash
-# Visit url, ex: https://github.com/ollelauribostrom
+# Open new tab, ex: https://github.com/ollelauribostrom
 # Copied to clipboard => ollelauribostrom 
 ```
 
